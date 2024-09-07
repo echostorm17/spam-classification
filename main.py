@@ -69,3 +69,11 @@ y_pred = model.predict(X_test_vect)
 
 # Display the first few predictions
 y_pred[:10]
+
+# Calculate and display the accuracy of the model
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Model Accuracy: {accuracy:.2f}")
+
+# Display a detailed classification report
+report = classification_report(y_test, y_pred, target_names=['ham', 'spam'])
+print("Classification Report:\n", report)
