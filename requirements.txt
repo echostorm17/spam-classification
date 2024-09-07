@@ -1,0 +1,8 @@
+pandas
+numpy
+scikit-learn
+fastapi
+uvicorn
+requests
+pyngrok
+nest_asyncio
