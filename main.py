@@ -54,3 +54,18 @@ X_test_vect = vectorizer.transform(X_test)
 # Display the shape of the vectorized data
 print(f"Training data shape: {X_train_vect.shape}")
 print(f"Testing data shape: {X_test_vect.shape}")
+
+# Initialize the Multinomial Naive Bayes model
+model = MultinomialNB()
+
+# Train the model on the training data
+model.fit(X_train_vect, y_train)
+
+# Display the training completion message
+print("Model training completed.")
+
+# Make predictions on the test data
+y_pred = model.predict(X_test_vect)
+
+# Display the first few predictions
+y_pred[:10]
