@@ -28,3 +28,9 @@ df['message'] = df['Message'].apply(clean_text)
 
 # Display the first few cleaned messages
 df.head()
+
+# Encode labels: 'ham' -> 0, 'spam' -> 1
+df['label'] = df['Category'].map({'ham': 0, 'spam': 1})
+
+# Display label distribution
+df['label'].value_counts()
