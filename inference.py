@@ -21,3 +21,15 @@ def predict_spam(email: str = Query(..., description="Email content to classify"
     result = {"prediction": "spam" if prediction[0] == 1 else "not spam"}
     print(result)
     return result
+
+import uvicorn
+import nest_asyncio
+from pyngrok import ngrok
+
+# Apply the nest_asyncio patch
+nest_asyncio.apply()
+
+public_url = ngrok.connect(9005, "http")
+print('Public URL:', public_url)
+
+uvicorn.run(app, host='0.0.0.0', port=9005)
