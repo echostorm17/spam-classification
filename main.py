@@ -13,3 +13,18 @@ kaggle_url = 'mfaisalqureshi/spam-email'
 file_name = 'spam.csv'
 
 subprocess.run(['kaggle', 'datasets', 'download', '-d', kaggle_url, '-f', file_name])
+
+df = pd.read_csv(file_name)
+
+def clean_text(text):
+    # Remove special characters, numbers, and punctuation
+    text = re.sub(r'\W', ' ', text)
+    # Convert to lowercase
+    text = text.lower()
+    return text
+
+# Apply text cleaning
+df['message'] = df['Message'].apply(clean_text)
+
+# Display the first few cleaned messages
+df.head()
