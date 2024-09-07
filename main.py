@@ -77,3 +77,13 @@ print(f"Model Accuracy: {accuracy:.2f}")
 # Display a detailed classification report
 report = classification_report(y_test, y_pred, target_names=['ham', 'spam'])
 print("Classification Report:\n", report)
+
+# Save the model to a file
+with open('spam_classifier.pkl', 'wb') as model_file:
+    pickle.dump(model, model_file)
+
+# Save the vectorizer to a file
+with open('count_vectorizer.pkl', 'wb') as vectorizer_file:
+    pickle.dump(vectorizer, vectorizer_file)
+
+print("Model and vectorizer saved successfully.")
